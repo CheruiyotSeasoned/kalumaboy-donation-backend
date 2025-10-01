@@ -101,5 +101,31 @@
       "message": null
     },
     "status": "200"
+  },
+  {
+    "timestamp": "2025-10-01T00:14:55.541Z",
+    "orderTrackingId": "a51bf053-f3b9-47fe-9396-db436980e39a",
+    "merchantReference": "KLB-1759273473532-u2hz7wnk7",
+    "payment_method": "MpesaKE",
+    "amount": 1,
+    "created_date": "2025-10-01T02:05:08.047",
+    "confirmation_code": "TJ1BL66EX1",
+    "order_tracking_id": "a51bf053-f3b9-47fe-9396-db436980e39a",
+    "payment_status_description": "Completed",
+    "description": null,
+    "message": "Request processed successfully",
+    "payment_account": "2547xxx67357",
+    "call_back_url": "http://localhost:3000/api/pesapal/verify-payment?OrderTrackingId=a51bf053-f3b9-47fe-9396-db436980e39a&OrderMerchantReference=KLB-1759273473532-u2hz7wnk7",
+    "status_code": 1,
+    "merchant_reference": "KLB-1759273473532-u2hz7wnk7",
+    "account_number": null,
+    "payment_status_code": "",
+    "currency": "KES",
+    "error": {
+      "error_type": null,
+      "code": null,
+      "message": null
+    },
+    "status": "200"
   }
 ]

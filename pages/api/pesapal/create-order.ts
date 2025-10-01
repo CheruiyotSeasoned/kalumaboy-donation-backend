@@ -1,7 +1,7 @@
 // File: pages/api/pesapal/create-order.ts
 
 import { NextApiRequest, NextApiResponse } from "next";
-import { PesapalV3Helper } from "./pesapal"; // adjust import if needed
+import { PesapalV3Helper } from "../../../lib/pesapal"; // adjust import if needed
 
 // Load from env
 const PESAPAL_CONSUMER_KEY =

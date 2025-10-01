@@ -4,7 +4,7 @@
 // ============================================
 
 import { NextApiRequest, NextApiResponse } from 'next';
-import { PesapalV3Helper } from './pesapal';
+import { PesapalV3Helper } from '../../../lib/pesapal';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   // Pesapal will send GET or POST request based on your IPN configuration

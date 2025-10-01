@@ -1,6 +1,6 @@
 // File: pages/api/pesapal/verify-payment.ts
 import { NextApiRequest, NextApiResponse } from "next";
-import { PesapalV3Helper } from "./pesapal";
+import { PesapalV3Helper } from "../../../lib/pesapal";
 import fs from "fs";
 import path from "path";
 
