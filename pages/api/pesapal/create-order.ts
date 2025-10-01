@@ -16,7 +16,7 @@ const IPN_URL = process.env.NEXT_PUBLIC_APP_URL + "/api/pesapal/ipn";
 let CACHED_IPN_ID = process.env.PESAPAL_IPN_ID || "";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  res.setHeader("Access-Control-Allow-Origin", "http://localhost:8080");
+  res.setHeader("Access-Control-Allow-Origin", "https://kalumaboy-donation-frontend.vercel.app");
   res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
 
