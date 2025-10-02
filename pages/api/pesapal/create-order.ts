@@ -15,10 +15,22 @@ const IPN_URL = process.env.NEXT_PUBLIC_APP_URL + "/api/pesapal/ipn";
 // Optional: set IPN_ID directly once you’ve registered it
 let CACHED_IPN_ID = process.env.PESAPAL_IPN_ID || "";
 
+const allowedOrigins = [
+  "https://kalumaboy-donation-frontend.vercel.app",
+  "https://another-frontend.example.com",
+  "http://localhost:3000"
+];
+
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  res.setHeader("Access-Control-Allow-Origin", "https://kalumaboy-donation-frontend.vercel.app");
+  const origin = req.headers.origin;
+
+  if (origin && allowedOrigins.includes(origin)) {
+    res.setHeader("Access-Control-Allow-Origin", origin);
+  }
+
   res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+  res.setHeader("Access-Control-Allow-Credentials", "true");
 
   // Handle preflight
   if (req.method === "OPTIONS") {
