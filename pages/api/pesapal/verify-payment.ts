@@ -5,8 +5,22 @@ import { PesapalV3Helper } from "../../../lib/pesapal";
 const PESAPAL_ENV = process.env.PESAPAL_ENV;
 const PESAPAL_CONSUMER_KEY = process.env.PESAPAL_CONSUMER_KEY;
 const PESAPAL_CONSUMER_SECRET = process.env.PESAPAL_CONSUMER_SECRET;
+const allowedOrigins = [
+  "https://kalumaboy-donation-frontend.vercel.app",
+  "https://kalumaboy.online",
+  "http://localhost:3000",
+];
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+  const origin = req.headers.origin;
+
+  if (origin && allowedOrigins.includes(origin)) {
+    res.setHeader("Access-Control-Allow-Origin", origin);
+  }
+  res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+  res.setHeader("Access-Control-Allow-Credentials", "true");
+
   if (req.method !== "GET") {
     return res.status(405).json({ error: "Method not allowed" });
   }
