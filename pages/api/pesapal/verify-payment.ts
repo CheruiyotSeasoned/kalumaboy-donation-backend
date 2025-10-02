@@ -8,6 +8,7 @@ const PESAPAL_CONSUMER_SECRET = process.env.PESAPAL_CONSUMER_SECRET;
 const allowedOrigins = [
   "https://kalumaboy-donation-frontend.vercel.app",
   "https://kalumaboy.online",
+  "https://www.kalumaboy.online",
   "http://localhost:3000",
 ];
 

@@ -3,6 +3,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
 const allowedOrigins = [
   "https://kalumaboy-donation-frontend.vercel.app",
   "https://kalumaboy.online",
+  "https://www.kalumaboy.online",
   "http://localhost:3000",
 ];
 
