@@ -18,6 +18,7 @@ let CACHED_IPN_ID = process.env.PESAPAL_IPN_ID || "";
 const allowedOrigins = [
   "https://kalumaboy-donation-frontend.vercel.app",
   "https://kalumaboy.online",
+  "https://www.kalumaboy.online",
   "http://localhost:3000"
 ];
 
