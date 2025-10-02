@@ -1,8 +1,6 @@
 // File: pages/api/pesapal/verify-payment.ts
 import { NextApiRequest, NextApiResponse } from "next";
 import { PesapalV3Helper } from "../../../lib/pesapal";
-import fs from "fs";
-import path from "path";
 
 const PESAPAL_ENV = process.env.PESAPAL_ENV;
 const PESAPAL_CONSUMER_KEY = process.env.PESAPAL_CONSUMER_KEY;
@@ -43,23 +41,17 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       tokenResponse.token
     );
 
-    // ✅ Save result into JSON file
-    const filePath = path.join(process.cwd(), "transactions.json");
-    let existingData: any[] = [];
-
-    if (fs.existsSync(filePath)) {
-      const fileContent = fs.readFileSync(filePath, "utf-8");
-      existingData = JSON.parse(fileContent || "[]");
-    }
-
-    existingData.push({
-      timestamp: new Date().toISOString(),
-      orderTrackingId,
-      merchantReference,
-      ...status,
+    // ✅ Send result to PHP backend to save
+    await fetch("https://share.akisolve.com/kaluma/save-transaction.php", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        timestamp: new Date().toISOString(),
+        orderTrackingId,
+        merchantReference,
+        ...status,
+      }),
     });
-
-    fs.writeFileSync(filePath, JSON.stringify(existingData, null, 2));
 
     // 👉 Redirect to frontend receipt page
     return res.redirect(
