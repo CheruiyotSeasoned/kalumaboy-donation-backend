@@ -64,7 +64,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     // 👉 Redirect to frontend receipt page
     return res.redirect(
       302,
-      `https://kalumaboy-donation-frontend.vercel.app/receipt/${merchantReference || orderTrackingId}`
+      `https://www.kalumaboy.online/receipt/${merchantReference || orderTrackingId}`
     );
   } catch (error: any) {
     console.error("Verify payment error:", error);
